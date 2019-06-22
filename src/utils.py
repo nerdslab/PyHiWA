@@ -29,11 +29,7 @@ def LS_oracle(X_test, Y_test):
     return H_inv
 
 def color_data(X, id):
-    id = np.reshape(np.array(id), len(id))
-    id_size = np.amax(id)
-    data_size = X.shape[1]
-
-    for i in range(id_size + 1):
+    for i in np.unique(id):
         plt.plot(X[id == i, 0], X[id == i, 1], linestyle='', marker='.', markersize=15)
 
 
