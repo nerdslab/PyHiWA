@@ -68,7 +68,7 @@ class HiWA:
         Whether to use the multiprocessing module to run ADMM iterations concurrently.
         Defaults to True
 
-    normal : Boolean
+    normalize : Boolean
         Whether to normalize source and target before attempting alignment.
         Defaults to True, should be performed to prevent numerical errors.
 
@@ -114,13 +114,13 @@ class HiWA:
         Defaults to 0.1
     """
 
-    def __init__(self, dim_red_method=PCA(n_components=2), normal=True, maxiter=300,
+    def __init__(self, dim_red_method=PCA(n_components=2), normalize=True, maxiter=300,
                  tol=1e-1, mu=5e-3, shorn_maxiter=1000, shorn_gamma=2e-1, sa_maxiter=100,
                  sa_tol=1e-2, sa_shorn_maxiter=150, sa_shorn_gamma=1e-1):
 
         # Save parameters
         self.dim_red_method = dim_red_method
-        self.normal = normal
+        self.normalize = normalize
         self.maxiter = maxiter
         self.tol = tol
         self.mu = mu
@@ -151,12 +151,12 @@ class HiWA:
         """
         # If not provided, compute transformations for source and target datasets using the method specified during
         # initialization
+        if self.normalize:
+            X = _normal(X)
+            Y = _normal(Y)
         X_transform = kwargs.get('X_transform', np.linalg.pinv(X) @ self.dim_red_method.fit_transform(X))
         Y_transform = kwargs.get('Y_transform', np.linalg.pinv(Y) @ self.dim_red_method.fit_transform(Y))
         self.Rgt = kwargs.get('Rgt', np.identity(X.shape[1]))
-        if self.normal:
-            X = _normal(X)
-            Y = _normal(Y)
 
         # Initialization
         h_dim, num_clusters_x, num_clusters_y = X.shape[1], len(np.unique(X_labels)), len(np.unique(Y_labels))
