@@ -15,6 +15,10 @@ HiWA leverages this cluster structure by first determining how best to align the
 ----------
 The `HiWA` class in this repository is a self-contained implementation of the algorithm. The included Jupyter Notebook is a comprehensive demo with the algorithm applied to both a synthetic dataset and a real-world neuroscience problem on decoding movement intention from neuron firing patterns in the primary motor cortex of a non-human primate. 
 
+## Dependencies
+---------------
+`numpy, scipy, matplotlib, scikit-learn`
+
 ## Tips
 -------
 - The dimensional reduction technique used to construct the low-dimensional embedding is *critically* important to the algorithm's success. The first thing to check if it is not working is whether the low-dimensional embeddings of the source and target datasets are capturing the same structure, and whether that structure is alignable (i.e. there are no pathological symmetries).
