@@ -21,4 +21,4 @@ The `HiWA` class in this repository is a self-contained implementation of the al
 
 ## Tips
 -------
-- The dimensional reduction technique used to construct the low-dimensional embedding is *critically* important to the algorithm's success. The first thing to check if it is not working is whether the low-dimensional embeddings of the source and target datasets are capturing the same structure, and whether that structure is alignable (i.e. there are no pathological symmetries).
+- The dimensionality reduction technique used to construct the low-dimensional embedding is *critically* important to the algorithm's success. The first thing to check if it is not working is whether the low-dimensional embeddings of the source and target datasets are capturing the same structure, and whether that structure is alignable (i.e. there are no pathological symmetries).
