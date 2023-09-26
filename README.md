@@ -2,7 +2,7 @@
 --------------------------------------------
 This repository contains a Python package implementing the algorithm described in this paper:
 
-John Lee, Max Dabagia, E Dyer, C Rozell: Hierarchical Wasserstein Alignment for Multimodal Distributions, May 2019. https://arxiv.org/abs/1906.11768
+John Lee, Max Dabagia, E Dyer, C Rozell: Hierarchical Wasserstein Alignment for Multimodal Distributions, NeurIPS 2019. https://arxiv.org/abs/1906.11768
 
 ## Overview
 ----------
